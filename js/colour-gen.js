@@ -1,12 +1,25 @@
 var html = '';
 var numOfDivs = 500;
 
+function print(message) {
+  document.write(message);
+}
+
+function genNum() {
+  return Math.floor(Math.random() * 256);
+}
+
+function genColour() {
+  var colour = "rgb(";
+  colour += genNum() + ",";
+  colour += genNum() + ",";
+  colour += genNum() + ")";
+  return colour;
+}
+
 for (var i = 1; i <=numOfDivs; i++) {
-  red = Math.floor(Math.random() * 256);
-  green = Math.floor(Math.random() * 256);
-  blue = Math.floor(Math.random() * 256);
-  rgbColour = "rgb(" + red + "," + green + "," + blue + ")";
+  rgbColour = genColour();
   html += '<div style="background-color:' + rgbColour + '"></div>';
 }
 
-document.write(html);
+print(html);
